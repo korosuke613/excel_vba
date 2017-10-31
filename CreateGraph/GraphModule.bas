@@ -13,6 +13,13 @@ Sub create_graph(data_range)
         .HasTitle = True ' タイトルを有効
         .ChartTitle.Text = range("B2").Value
         .Axes(xlValue).MaximumScale = 100 '数値軸の変更
+        'グラフのX軸(横軸)のタイトルを設定
+        .Axes(xlCategory, xlPrimary).HasTitle = True
+        .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "名前"
+        ' グラフのY軸(縦軸)のタイトルを設定
+        .Axes(xlValue, xlPrimary).HasTitle = True
+        .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "点数"
+
     End With
     
     With ActiveSheet.ChartObjects(1)
